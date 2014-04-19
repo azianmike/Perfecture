@@ -62,6 +62,9 @@ public class MainScreen extends Activity {
 			e.printStackTrace();
 		}
 	    firstImageView.setImageBitmap(bitmap);
+	    
+	    ClientThread test = new ClientThread();
+	    test.execute("testing!");
 		
 	}
 
