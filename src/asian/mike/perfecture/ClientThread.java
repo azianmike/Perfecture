@@ -24,7 +24,7 @@ import android.view.WindowManager;
 	 *
 	 */
 	class ClientThread extends AsyncTask<String, Void, Void> {
-		private CustomActivity activity;
+
 		String output=null;
 		private Socket socket;
 
@@ -41,7 +41,8 @@ import android.view.WindowManager;
 				
 				DataOutputStream os = new DataOutputStream(socket.getOutputStream());
 				PrintWriter pw = new PrintWriter(os);
-				pw.println(arg0[0]);
+				pw.print(arg0[0]);
+				Log.i("image", arg0[0]);
 				pw.flush();
 				
 				BufferedReader is = new BufferedReader(new InputStreamReader(in));

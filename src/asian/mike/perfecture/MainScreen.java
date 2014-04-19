@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -13,9 +14,12 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
+import java.io.ByteArrayOutputStream;
+
 
 public class MainScreen extends Activity {
 	
@@ -51,9 +55,12 @@ public class MainScreen extends Activity {
 	    
 	    ImageView firstImageView = (ImageView) findViewById(R.id.imageView1);
 	    Uri link = Uri.parse("file://"+result.get(0));
+	    Uri link2 = Uri.parse("file://"+result.get(1));
 	    Bitmap bitmap = null;
+
 	    try {
 			bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), link);
+			bitmap=Bitmap.createScaledBitmap(bitmap, 100, 100, true);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,8 +71,28 @@ public class MainScreen extends Activity {
 	    firstImageView.setImageBitmap(bitmap);
 	    
 	    ClientThread test = new ClientThread();
-	    test.execute("testing!");
+	    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
+		byte[] byteArray = stream.toByteArray();
+		String strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
+	    test.execute(strBase64Image+"\r\n\r\n");
 		
+	    try {
+			bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), link2);
+			bitmap=Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    test = new ClientThread();
+	    stream = new ByteArrayOutputStream();
+		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
+		byteArray = stream.toByteArray();
+		strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
+	    test.execute(strBase64Image+"\r\n\r\n");
 	}
 
 	@Override
