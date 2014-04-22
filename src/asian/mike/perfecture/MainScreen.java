@@ -41,13 +41,11 @@ public class MainScreen extends Activity {
 
 	    ArrayList<String> result = new ArrayList<String>(cursor.getCount());
 
-	    Log.i("cursor.getCount()) :", cursor.getCount() + "");
 
 	    if (cursor.moveToFirst()) {
 	        final int dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
 	        do {
 	            final String data = cursor.getString(dataColumn);
-	            Log.i ("data :",data );
 	            result.add(data);
 	        } while (cursor.moveToNext());
 	    }
@@ -60,7 +58,6 @@ public class MainScreen extends Activity {
 
 	    try {
 			bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), link);
-			bitmap=Bitmap.createScaledBitmap(bitmap, 100, 100, true);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,29 +67,31 @@ public class MainScreen extends Activity {
 		}
 	    firstImageView.setImageBitmap(bitmap);
 	    
-	    ClientThread test = new ClientThread();
-	    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
-		byte[] byteArray = stream.toByteArray();
-		String strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
-	    test.execute(strBase64Image+"\r\n\r\n");
-		
-	    try {
-			bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), link2);
-			bitmap=Bitmap.createScaledBitmap(bitmap, 100, 100, true);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    test = new ClientThread();
-	    stream = new ByteArrayOutputStream();
-		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
-		byteArray = stream.toByteArray();
-		strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
-	    test.execute(strBase64Image+"\r\n\r\n");
+	    ClientThread test = new ClientThread(result, this.getContentResolver());
+	    test.execute();
+//	    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
+//		byte[] byteArray = stream.toByteArray();
+//		String strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
+//	    test.execute(strBase64Image+"\r\n\r\n");
+//		
+//	    try {
+//			bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), link2);
+//			bitmap=Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	    //test = new ClientThread();
+//	    stream = new ByteArrayOutputStream();
+//		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
+//		byteArray = stream.toByteArray();
+//		strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
+//	    //test.execute(strBase64Image+"\r\n\r\n");
 	}
 
 	@Override
