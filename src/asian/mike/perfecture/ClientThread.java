@@ -1,34 +1,26 @@
 package asian.mike.perfecture;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
-import android.app.ProgressDialog;
 import android.content.ContentResolver;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
-import android.view.Window;
-import android.view.WindowManager;
 
 /**
 	 * Connects to the EC2 server
@@ -58,19 +50,11 @@ import android.view.WindowManager;
 				
 				DataOutputStream os = new DataOutputStream(socket.getOutputStream());
 				PrintWriter pw = new PrintWriter(os);
-				String dataToSend = getImageData();
-				//os.write(dataToSend);
-				pw.print(dataToSend);
+				String dataToSend = getJSONString();
 				
-				
-				
-				//Log.i("image", arg0[0]);
-				pw.flush();
-				//os.flush();
-				
-				//BufferedReader is = new BufferedReader(new InputStreamReader(in));
-				//output= is.readLine();
+				pw.print(dataToSend+"\r\n\r\n");
 
+				pw.flush();
 				
 					
 				
@@ -80,25 +64,37 @@ import android.view.WindowManager;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			} 
 			
 			return null;
 		}
-
+		
+		private String getJSONString() throws FileNotFoundException, JSONException, IOException
+		{
+			JSONObject data = new JSONObject();
+			JSONArray images = new JSONArray(); 
+			data.put(results.get(0), getImageData());
+			images.put("fake@email.com");
+			images.put(data);
+			return images.toString();
+		}
+		/**
+		 * Gets image data from URI
+		 * @return
+		 * @throws FileNotFoundException
+		 * @throws IOException
+		 */
 		private String getImageData() throws FileNotFoundException, IOException {
-//			Uri link = Uri.parse("file://"+results.remove(0));
-//			Bitmap bitmap = MediaStore.Images.Media.getBitmap(currContext, link);
-//			ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//			bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
-//			byte[] byteArray = stream.toByteArray();
-//			String strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
 			File myFile = new File (results.remove(0));
 			byte [] mybytearray  = new byte [(int)myFile.length()];
             Log.i("####### file length = ", String.valueOf(myFile.length()) );
             FileInputStream fis = new FileInputStream(myFile);
             BufferedInputStream bis = new BufferedInputStream(fis);
             bis.read(mybytearray,0,mybytearray.length);
-			return Base64.encodeToString(mybytearray, 0)+"\r\n\r\n";
+			return Base64.encodeToString(mybytearray, 0);
 		}
 		
 		@Override
@@ -125,7 +121,7 @@ import android.view.WindowManager;
 		
 		@Override
 		protected void onPreExecute() {
-			//pd = new ProgressDialog(activity.getApplicationContext());
+
 	    }
 		
 	}
