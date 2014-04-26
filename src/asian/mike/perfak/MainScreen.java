@@ -52,6 +52,14 @@ public class MainScreen extends Activity {
 		        changeRegisterScreen();
 		    }
 		});
+		
+		Button login = (Button) findViewById(R.id.loginButton);
+		login.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		        changeLoginScreen();
+		    }
+		});
 	}
 
 	private void sendImageData() {
@@ -94,29 +102,6 @@ public class MainScreen extends Activity {
 	    
 	    ClientThread test = new ClientThread(result, this.getContentResolver());
 	    test.execute();
-//	    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
-//		byte[] byteArray = stream.toByteArray();
-//		String strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
-//	    test.execute(strBase64Image+"\r\n\r\n");
-//		
-//	    try {
-//			bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), link2);
-//			bitmap=Bitmap.createScaledBitmap(bitmap, 100, 100, true);
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//	    //test = new ClientThread();
-//	    stream = new ByteArrayOutputStream();
-//		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
-//		byteArray = stream.toByteArray();
-//		strBase64Image=Base64.encodeToString(byteArray, 0);  //converts image to base 64
-//	    //test.execute(strBase64Image+"\r\n\r\n");
 	}
 
 	@Override
@@ -165,6 +150,21 @@ public class MainScreen extends Activity {
 		
 		try{
 		    Intent i = new Intent(getApplicationContext(), Register.class);
+		    startActivity(i);
+		    }
+		    catch(Exception ex)
+		    {
+		        Log.e("main",ex.toString());
+		    }
+		
+	}
+	/*
+	 * Sends a message to the view after button is clicked
+	 */
+	public void changeLoginScreen() {
+		
+		try{
+		    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
 		    startActivity(i);
 		    }
 		    catch(Exception ex)

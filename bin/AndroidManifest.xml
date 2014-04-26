@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="asian.mike.perfecture.LoginActivity"
+            android:name="asian.mike.perfak.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>

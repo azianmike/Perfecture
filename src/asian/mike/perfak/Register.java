@@ -77,27 +77,15 @@ public class Register extends CustomActivity {
        return String.format("%0" + (data.length*2) + "X", new BigInteger(1, data));
 	}
 	
-	/**
-	 * Pass words are not the same
-	 */
-	private void notSamePassword()
-	{
-		android.app.AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Passwords don't match");
-        alert.setMessage("Passwords don't match");
-        alert.setPositiveButton("OK", null);
-        alert.show();
-	}
-	
 
 	/**
 	 * Failure for registration, user email probably exists
 	 */
-	private void registrationFailure()
+	private void setAlert(String message)
 	{
 		android.app.AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Registration failure!");
-        alert.setMessage("Registration failure! :(");
+        alert.setTitle(message);
+        alert.setMessage(message);
         alert.setPositiveButton("OK", null);
         alert.show();
 	}
@@ -141,19 +129,26 @@ public class Register extends CustomActivity {
 		
 		JSONObject sendInfo=new JSONObject();
 		String email= ((EditText)findViewById(R.id.locationName)).getText().toString();
-		String password=((EditText)findViewById(R.id.password)).getText().toString();
-		String repeatPassword=((EditText)findViewById(R.id.repeatPassword)).getText().toString();
-		if(password.equals(repeatPassword)==false)
+		int indexOfAtSign = email.indexOf("@");
+		if(indexOfAtSign != -1 && email.indexOf(".", indexOfAtSign) != -1)
 		{
-			notSamePassword();
-		}else{
-			sendInfo.put("function", "register");
-			sendInfo.put("user_email", email);
-			sendInfo.put("password", getHashPassword(password));
-			
-			String sendInfoString=sendInfo.toString()+"\r\n\r\n";
-			thread=new ClientThreadString(this);;
-			thread.execute(sendInfoString);
+			String password=((EditText)findViewById(R.id.password)).getText().toString();
+			String repeatPassword=((EditText)findViewById(R.id.repeatPassword)).getText().toString();
+			if(password.equals(repeatPassword)==false)
+			{
+				setAlert("Passwords do not match");
+			}else{
+				sendInfo.put("function", "register");
+				sendInfo.put("user_email", email);
+				sendInfo.put("password", getHashPassword(password));
+				
+				String sendInfoString=sendInfo.toString()+"\r\n\r\n";
+				thread=new ClientThreadString(this);;
+				thread.execute(sendInfoString);
+			}
+		}else
+		{
+			setAlert("Not a valid email address");
 		}
 	}
 	
@@ -168,7 +163,7 @@ public class Register extends CustomActivity {
 			Looper.loop();
 		}else
 		{
-			registrationFailure();
+			setAlert("Registration failure!");
 			Looper.loop();
 		}
 	}

@@ -108,9 +108,28 @@ public class LoginActivity extends CustomActivity {
 			}
         });
         alert.show();
-        
         UserID.userID=output;
-        
+        Log.i("userid", UserID.userID);
+	}
+	
+	/**
+	 * Submits login data to the server
+	 * @throws JSONException
+	 * @throws IOException
+	 */
+	private void submitLogin() throws JSONException, IOException
+	{
+		JSONObject sendInfo=new JSONObject();
+		String email= ((EditText)findViewById(R.id.email)).getText().toString();
+		String password=((EditText)findViewById(R.id.password)).getText().toString();
+		
+		sendInfo.put("function", "login");
+		sendInfo.put("user_email", email);
+		sendInfo.put("password", getHashPassword(password));
+		
+		String sendInfoString=sendInfo.toString()+"\r\n\r\n";
+		thread=new ClientThreadString(this);;
+		thread.execute(sendInfoString);
 	}
 	
 	@Override
@@ -125,27 +144,5 @@ public class LoginActivity extends CustomActivity {
 		{
 			loginSuccess(output);
 		}
-	}
-	
-	/**
-	 * Submits login data to the server
-	 * @throws JSONException
-	 * @throws IOException
-	 */
-	private void submitLogin() throws JSONException, IOException
-	{
-	
-		JSONObject sendInfo=new JSONObject();
-		String email= ((EditText)findViewById(R.id.email)).getText().toString();
-		String password=((EditText)findViewById(R.id.password)).getText().toString();
-		
-		sendInfo.put("function", "login");
-		sendInfo.put("user_email", email);
-		sendInfo.put("password", getHashPassword(password));
-		
-		String sendInfoString=sendInfo.toString()+"\r\n\r\n";
-		thread=new ClientThreadString(this);;
-		thread.execute(sendInfoString);
-
 	}
 }
