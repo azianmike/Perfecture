@@ -61,4 +61,16 @@ public abstract class CustomActivity extends FragmentActivity{
 	public abstract void postExecute(String output) throws JSONException, IOException;
 	
 
+	/**
+	 * Failure for registration, user email probably exists
+	 */
+	protected void setAlert(String message)
+	{
+		android.app.AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(message);
+        alert.setMessage(message);
+        alert.setPositiveButton("OK", null);
+        alert.show();
+	}
+
 }

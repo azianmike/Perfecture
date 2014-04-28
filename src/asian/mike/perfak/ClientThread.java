@@ -74,12 +74,15 @@ import android.util.Log;
 		
 		private String getJSONString() throws FileNotFoundException, JSONException, IOException
 		{
-			JSONObject data = new JSONObject();
+			JSONObject imageData = new JSONObject();
 			JSONArray images = new JSONArray(); 
-			data.put(results.get(0), getImageData());
-			images.put("fake@email.com");
-			images.put(data);
-			return images.toString();
+			imageData.put(results.get(0), getImageData());
+			images.put(imageData);
+			JSONObject fullData = new JSONObject();
+			fullData.put("userID", UserID.userID);
+			fullData.put("function", "upload");
+			fullData.put("image", images);
+			return fullData.toString();
 		}
 		/**
 		 * Gets image data from URI

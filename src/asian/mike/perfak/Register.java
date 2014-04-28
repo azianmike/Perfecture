@@ -77,18 +77,6 @@ public class Register extends CustomActivity {
        return String.format("%0" + (data.length*2) + "X", new BigInteger(1, data));
 	}
 	
-
-	/**
-	 * Failure for registration, user email probably exists
-	 */
-	private void setAlert(String message)
-	{
-		android.app.AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle(message);
-        alert.setMessage(message);
-        alert.setPositiveButton("OK", null);
-        alert.show();
-	}
 	
 	/**
 	 * Success for registration!
