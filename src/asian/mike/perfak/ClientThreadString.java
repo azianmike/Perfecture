@@ -65,7 +65,8 @@ import android.view.WindowManager;
 	    protected void onPostExecute(Void result) {
 			
 			try {
-				socket.close();
+				if(socket != null)
+					socket.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

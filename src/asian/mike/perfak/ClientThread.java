@@ -77,11 +77,13 @@ import android.util.Log;
 			JSONObject imageData = new JSONObject();
 			JSONArray images = new JSONArray(); 
 			imageData.put(results.get(0), getImageData());
+			Log.i("results length", Integer.toString(results.size()));
 			images.put(imageData);
 			JSONObject fullData = new JSONObject();
 			fullData.put("userID", UserID.userID);
 			fullData.put("function", "upload");
 			fullData.put("image", images);
+			fullData.put("images left", results.size());
 			return fullData.toString();
 		}
 		/**
