@@ -2,6 +2,7 @@ package asian.mike.perfak;
 
 import java.io.IOException;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.app.AlertDialog;
@@ -43,6 +44,20 @@ public abstract class CustomActivity extends FragmentActivity{
 	protected void onResume()
 	{
 		super.onResume();
+		if(UserID.extras != null)
+		{
+			Log.i("resumed", UserID.extras.getString("data"));
+			try {
+				JSONArray testData = new JSONArray(UserID.extras.getString("data"));
+				for(int i=0;i<testData.length();i++)
+				{
+					Log.i("resumed", testData.getString(i));
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@Override

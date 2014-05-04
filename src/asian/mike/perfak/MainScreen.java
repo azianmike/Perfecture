@@ -10,6 +10,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -82,12 +83,14 @@ public class MainScreen extends CustomActivity {
 	    //sendImageData();
 		
 		setButtonListeners();
+		setUserID();
 		
 		if (checkPlayServices()) {
 	        //setAlert("play services exist!");
 			context = getApplicationContext();
 			gcm = GoogleCloudMessaging.getInstance(this);
 			regid = getRegistrationId(context);
+			UserID.gcmID = regid;
 			Log.i("regid", regid);
             if (regid.isEmpty()) {
                 registerInBackground();
@@ -229,6 +232,7 @@ public class MainScreen extends CustomActivity {
 	{
 		super.onResume();
 		updateLogin();
+		
 	}
 	
 	@Override
@@ -389,7 +393,6 @@ public class MainScreen extends CustomActivity {
 	    
 	    //ImageView firstImageView = (ImageView) findViewById(R.id.imageView1);
 	    Uri link = Uri.parse("file://"+result.get(0));
-	    Uri link2 = Uri.parse("file://"+result.get(1));
 	    Bitmap bitmap = null;
 
 	    try {
@@ -477,5 +480,13 @@ public class MainScreen extends CustomActivity {
 		
 	}
 	
+	protected void setUserID()
+	{
+		UserID.userID = getUserFromDisk();
+		if(UserID.userID!="-1")
+		{
+			updateLogin();
+		}
+	}
 
 }

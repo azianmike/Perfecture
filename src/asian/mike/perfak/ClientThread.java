@@ -81,6 +81,7 @@ import android.util.Log;
 			images.put(imageData);
 			JSONObject fullData = new JSONObject();
 			fullData.put("userID", UserID.userID);
+			fullData.put("gcm_ID", UserID.gcmID);
 			fullData.put("function", "upload");
 			fullData.put("image", images);
 			fullData.put("images left", results.size());

@@ -129,6 +129,7 @@ public class Register extends CustomActivity {
 				sendInfo.put("function", "register");
 				sendInfo.put("user_email", email);
 				sendInfo.put("password", getHashPassword(password));
+				sendInfo.put("gcm_ID", UserID.gcmID);
 				
 				String sendInfoString=sendInfo.toString()+"\r\n\r\n";
 				thread=new ClientThreadString(this);;
