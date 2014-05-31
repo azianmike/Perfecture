@@ -369,25 +369,33 @@ public class MainScreen extends CustomActivity {
 	}
 	
 	@Override
-	 protected void onActivityResult(int requestCode, int resultCode, Intent data) 
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) 
 	{
-	     super.onActivityResult(requestCode, resultCode, data);
-	      
-	     if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-	         Uri selectedImage = data.getData();
-	         String[] filePathColumn = { MediaStore.Images.Media.DATA };
-	         
-	         Log.i("data", selectedImage.toString());
-//	         Cursor cursor = getContentResolver().query(selectedImage,
-//	                 filePathColumn, null, null, null);
-//	         cursor.moveToFirst();
-//	 
-//	         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//	         String picturePath = cursor.getString(columnIndex);
-//	         cursor.close();
-	                      
-	         // String picturePath contains the path of selected Image
-	     }
+		super.onActivityResult(requestCode, resultCode, data);
+		Log.i("enter","enter");
+		Log.i("enter", Integer.toString(requestCode));
+		Log.i("enter", Integer.toString(resultCode));
+		Log.i("enter", Integer.toString(Activity.RESULT_OK));
+		if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
+            Log.i("data", data.toString());
+            String[] single_path = data.getStringArrayExtra("all_path");
+            Log.i("asdf", single_path[0]);
+            
+
+        } else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
+            String[] all_path = data.getStringArrayExtra("all_path");
+
+            ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
+
+            for (String string : all_path) {
+                CustomGallery item = new CustomGallery();
+                item.sdcardPath = string;
+                Log.i("string", string);
+                dataT.add(item);
+            }
+
+            
+        }
      }
 	     
 	private void sendImageData() {
