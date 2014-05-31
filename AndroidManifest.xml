@@ -33,12 +33,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="luminous.ACTION_PICK" />
-                <action android:name="luminous.ACTION_MULTIPLE_PICK" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            
         </activity>
         <activity
             android:name="asian.mike.perfak.LoginActivity"
@@ -73,6 +68,13 @@
         <activity
             android:name="asian.mike.perfak.CustomGalleryActivity"
             android:label="@string/title_activity_custom_gallery" >
+            
+            <intent-filter>
+                <action android:name="luminous.ACTION_PICK" />
+                <action android:name="luminous.ACTION_MULTIPLE_PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

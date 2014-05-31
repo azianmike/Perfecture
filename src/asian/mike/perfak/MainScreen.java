@@ -355,12 +355,16 @@ public class MainScreen extends CustomActivity {
 	 */
 	private void choosePhotos()
 	{
-//		Intent i = new Intent(
-//		Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//		 
-//		startActivityForResult(i, RESULT_LOAD_IMAGE);
+//		try{
+//		    Intent i = new Intent(getApplicationContext(), CustomGalleryActivity.class);
+//		    startActivity(i);
+//	    }
+//	    catch(Exception ex)
+//	    {
+//	        Log.e("main",ex.toString());
+//	    }
 		Log.i("clicked","clicked");
-		Intent i = new Intent(Action.ACTION_PICK);
+		Intent i = new Intent(Action.ACTION_MULTIPLE_PICK);
 		startActivityForResult(i, 100);
 	}
 	
