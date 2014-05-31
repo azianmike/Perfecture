@@ -87,6 +87,7 @@ import android.util.Log;
 			fullData.put("images left", results.size());
 			return fullData.toString();
 		}
+		
 		/**
 		 * Gets image data from URI
 		 * @return

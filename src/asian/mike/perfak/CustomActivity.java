@@ -1,6 +1,7 @@
 package asian.mike.perfak;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,13 +9,16 @@ import org.json.JSONException;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -87,5 +91,29 @@ public abstract class CustomActivity extends FragmentActivity{
         alert.setPositiveButton("OK", null);
         alert.show();
 	}
+	
+	protected ArrayList<String> getImageURIs() {
+		String[] projection = {MediaStore.Images.Media.DATA};
 
+		ContextWrapper context = (ContextWrapper) getApplicationContext();
+		final Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+	            projection,
+	            null,
+	            null,
+	            null);
+
+	    ArrayList<String> result = new ArrayList<String>(cursor.getCount());
+
+
+	    if (cursor.moveToFirst()) {
+	        final int dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+	        do {
+	            final String data = cursor.getString(dataColumn);
+	            result.add(data);
+	        } while (cursor.moveToNext());
+	    }
+	    cursor.close();
+		return result;
+	}
+	
 }

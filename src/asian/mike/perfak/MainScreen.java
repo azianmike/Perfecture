@@ -48,7 +48,7 @@ import asian.mike.perfak.R;
 
 
 public class MainScreen extends CustomActivity {
-	
+	private static int RESULT_LOAD_IMAGE = 1;
 	private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 	public static final int GALLERY_CODE = 322;
 	private Menu menu;
@@ -332,8 +332,119 @@ public class MainScreen extends CustomActivity {
 		    }
 		});
 		
+		Button photos = (Button) findViewById(R.id.photos);
+		photos.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    	changePhotosScreen();
+		    }
+		});
+		
+		Button choosePhotos = (Button) findViewById(R.id.choosePhotos);
+		choosePhotos.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    	choosePhotos();
+		    }
+		});
+		
+	}
+	
+	/**
+	 * Lets user choose what photos to upload
+	 */
+	private void choosePhotos()
+	{
+//		Intent i = new Intent(
+//		Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//		 
+//		startActivityForResult(i, RESULT_LOAD_IMAGE);
+		Log.i("clicked","clicked");
+		Intent i = new Intent(Action.ACTION_PICK);
+		startActivityForResult(i, 100);
+	}
+	
+	@Override
+	 protected void onActivityResult(int requestCode, int resultCode, Intent data) 
+	{
+	     super.onActivityResult(requestCode, resultCode, data);
+	      
+	     if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+	         Uri selectedImage = data.getData();
+	         String[] filePathColumn = { MediaStore.Images.Media.DATA };
+	         
+	         Log.i("data", selectedImage.toString());
+//	         Cursor cursor = getContentResolver().query(selectedImage,
+//	                 filePathColumn, null, null, null);
+//	         cursor.moveToFirst();
+//	 
+//	         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+//	         String picturePath = cursor.getString(columnIndex);
+//	         cursor.close();
+	                      
+	         // String picturePath contains the path of selected Image
+	     }
+     }
+	     
+	private void sendImageData() {
+		ArrayList<String> result = getImageURIs();
+
+	    
+	    ClientThread test = new ClientThread(result, this.getContentResolver());
+	    test.execute();
 	}
 
+
+	/*
+	 * Sends a message to the view after button is clicked
+	 */
+	public void changeRegisterScreen() {
+		
+		try{
+		    Intent i = new Intent(getApplicationContext(), Register.class);
+		    startActivity(i);
+		    }
+		    catch(Exception ex)
+		    {
+		        Log.e("main",ex.toString());
+		    }
+		
+	}
+	/*
+	 * Sends a message to the view after button is clicked
+	 */
+	public void changeLoginScreen() {
+		
+		try{
+		    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+		    startActivity(i);
+		    }
+		    catch(Exception ex)
+		    {
+		        Log.e("main",ex.toString());
+		    }
+		
+	}
+	
+	public void changePhotosScreen() {
+		
+		try{
+		    Intent i = new Intent(getApplicationContext(), ShowPhotos.class);
+		    startActivity(i);
+		    }
+		    catch(Exception ex)
+		    {
+		        Log.e("main",ex.toString());
+		    }
+		
+	}
+
+	@Override
+	public void postExecute(String output) throws JSONException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	/**
 	 * Updates login text
 	 */
@@ -369,47 +480,14 @@ public class MainScreen extends CustomActivity {
 		signoutItem.setVisible(true);
 	}
 	
-	private void sendImageData() {
-		String[] projection = {MediaStore.Images.Media.DATA};
-
-		ContextWrapper context = (ContextWrapper) getApplicationContext();
-		final Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-	            projection,
-	            null,
-	            null,
-	            null);
-
-	    ArrayList<String> result = new ArrayList<String>(cursor.getCount());
-
-
-	    if (cursor.moveToFirst()) {
-	        final int dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-	        do {
-	            final String data = cursor.getString(dataColumn);
-	            result.add(data);
-	        } while (cursor.moveToNext());
-	    }
-	    cursor.close();
-	    
-	    //ImageView firstImageView = (ImageView) findViewById(R.id.imageView1);
-	    Uri link = Uri.parse("file://"+result.get(0));
-	    Bitmap bitmap = null;
-
-	    try {
-			bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), link);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	protected void setUserID()
+	{
+		UserID.userID = getUserFromDisk();
+		if(UserID.userID!="-1")
+		{
+			updateLogin();
 		}
-	    //firstImageView.setImageBitmap(bitmap);
-	    
-	    ClientThread test = new ClientThread(result, this.getContentResolver());
-	    test.execute();
 	}
-
 	
 	/**
 	 * Gets user ID from disk if it exists
@@ -442,51 +520,4 @@ public class MainScreen extends CustomActivity {
 		
 		return ret;
 	}
-	
-	/*
-	 * Sends a message to the view after button is clicked
-	 */
-	public void changeRegisterScreen() {
-		
-		try{
-		    Intent i = new Intent(getApplicationContext(), Register.class);
-		    startActivity(i);
-		    }
-		    catch(Exception ex)
-		    {
-		        Log.e("main",ex.toString());
-		    }
-		
-	}
-	/*
-	 * Sends a message to the view after button is clicked
-	 */
-	public void changeLoginScreen() {
-		
-		try{
-		    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-		    startActivity(i);
-		    }
-		    catch(Exception ex)
-		    {
-		        Log.e("main",ex.toString());
-		    }
-		
-	}
-
-	@Override
-	public void postExecute(String output) throws JSONException, IOException {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	protected void setUserID()
-	{
-		UserID.userID = getUserFromDisk();
-		if(UserID.userID!="-1")
-		{
-			updateLogin();
-		}
-	}
-
 }
