@@ -1,0 +1,32 @@
+<component name="libraryTable">
+  <library name="google_play_services">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/google/google_play_services" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/auth/gen" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/auth/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/cast/tictactoe/gen" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/cast/tictactoe/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/cast/democastplayer/gen" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/cast/democastplayer/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/maps/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/plus/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/admob/gen" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/admob/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/drive/demos/gen" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/drive/demos/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/drive/querying/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/drive/quickeditor/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/wallet/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/panorama/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/analytics/gen" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/analytics/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/tagmanager/helloworld/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/samples/tagmanager/cuteanimals/src" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/libproject/google-play-services_lib/gen" />
+      <root url="file://$PROJECT_DIR$/google/google_play_services/libproject/google-play-services_lib/src" />
+    </SOURCES>
+  </library>
+</component>
