@@ -18,7 +18,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import asian.mike.perfak.CustomActivity;
+import asian.mike.perfak.constants.UserID;
+import asian.mike.perfak.custom.threads.ClientThreadString;
 
 /**
  * Activity which displays a login screen to the user, offering registration as

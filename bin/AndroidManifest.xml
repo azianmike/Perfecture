@@ -33,7 +33,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
         <activity
             android:name="asian.mike.perfak.LoginActivity"
@@ -50,7 +49,7 @@
             android:value="@integer/google_play_services_version" />
 
         <receiver
-            android:name="asian.mike.perfak.GcmBroadcastReceiver"
+            android:name="asian.mike.perfak.gcm.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -58,23 +57,34 @@
                 <category android:name="com.example.gcm" />
             </intent-filter>
         </receiver>
-
-        <service android:name="asian.mike.perfak.GcmIntentService" />
+        
+        <service android:name="asian.mike.perfak.gcm.GcmIntentService" />
 
         <activity
-            android:name="asian.mike.perfak.ShowPhotos"
+            android:name="asian.mike.perfak.ShowAllPhotos"
             android:label="@string/title_activity_show_photos" >
         </activity>
         <activity
-            android:name="asian.mike.perfak.CustomGalleryActivity"
+            android:name="asian.mike.perfak.custom.gallery.CustomGalleryActivity"
             android:label="@string/title_activity_custom_gallery" >
-            
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
                 <action android:name="luminous.ACTION_MULTIPLE_PICK" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="asian.mike.perfak.ProcessedImage"
+            android:label="@string/title_activity_processed_image" >
+        </activity>
+        <activity
+            android:name="asian.mike.perfak.GridViewActivity"
+            android:label="@string/title_activity_grid_view" >
+        </activity>
+        <activity
+            android:name="asian.mike.perfak.FullScreenViewActivity"
+            android:label="@string/title_activity_full_screen_view" >
         </activity>
     </application>
 

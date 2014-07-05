@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import asian.mike.perfak.constants.UserID;
+import asian.mike.perfak.custom.threads.ClientThreadString;
 
 
 /**
@@ -135,6 +137,7 @@ public class LoginActivity extends CustomActivity {
 	@Override
 	public void postExecute(String output) throws JSONException, IOException {
 		// TODO Auto-generated method stub
+		Log.i("output string", output);
 		if(output==null)
 			return;
 		if(output.equals("-1"))

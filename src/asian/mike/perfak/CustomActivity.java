@@ -24,6 +24,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import asian.mike.perfak.constants.UserID;
 
 
 public abstract class CustomActivity extends FragmentActivity{

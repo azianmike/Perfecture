@@ -7,8 +7,11 @@
     <string name="title_activity_register">Register</string>
     <string name="title_activity_show_photos">ShowPhotos</string>
     <string name="title_activity_custom_gallery">CustomGalleryActivity</string>
-
     <string name="btn_ok">OK</string>
     <string name="btn_pick">Pick From Gallery</string>
     <string name="btn_pick_mul">Pick From Gallery (Multiple)</string>
+    <string name="title_activity_processed_image">ProcessedImage</string>
+    <string name="title_activity_grid_view">GridView</string>
+    <string name="title_activity_full_screen_view">FullScreenViewActivity</string>
+
 </resources>

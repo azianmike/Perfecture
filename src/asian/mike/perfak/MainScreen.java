@@ -6,49 +6,43 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.provider.MediaStore.Images.Media;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import asian.mike.perfak.R;
+import asian.mike.perfak.constants.Action;
+import asian.mike.perfak.constants.UserID;
+import asian.mike.perfak.custom.gallery.CustomGallery;
+import asian.mike.perfak.custom.threads.ClientThread;
 
 
 
 
 public class MainScreen extends CustomActivity {
-	private static int RESULT_LOAD_IMAGE = 1;
 	private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 	public static final int GALLERY_CODE = 322;
 	private Menu menu;
@@ -327,7 +321,7 @@ public class MainScreen extends CustomActivity {
 		    		setAlert("Not logged in");
 		    	}
 		    	else{
-		    		sendImageData();
+		    		sendImageData(getImageURIs());
 		    	}
 		    }
 		});
@@ -348,65 +342,30 @@ public class MainScreen extends CustomActivity {
 		    }
 		});
 		
+		Button goToProcessedImages = (Button) findViewById(R.id.goToProcessedImages);
+		goToProcessedImages.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    	//goToProcessedImages();
+		    	choosePhotos();
+		    }
+		});
 	}
 	
-	/**
-	 * Lets user choose what photos to upload
-	 */
-	private void choosePhotos()
+	
+	private void goToProcessedImages()
 	{
-//		try{
-//		    Intent i = new Intent(getApplicationContext(), CustomGalleryActivity.class);
-//		    startActivity(i);
-//	    }
-//	    catch(Exception ex)
-//	    {
-//	        Log.e("main",ex.toString());
-//	    }
-		Log.i("clicked","clicked");
-		Intent i = new Intent(Action.ACTION_MULTIPLE_PICK);
-		startActivityForResult(i, 100);
+		try{
+		    Intent i = new Intent(getApplicationContext(), ShowAllPhotos.class);
+		    startActivity(i);
+	    }
+	    catch(Exception ex)
+	    {
+	        Log.e("main",ex.toString());
+	    }
+		
 	}
 	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) 
-	{
-		super.onActivityResult(requestCode, resultCode, data);
-		Log.i("enter","enter");
-		Log.i("enter", Integer.toString(requestCode));
-		Log.i("enter", Integer.toString(resultCode));
-		Log.i("enter", Integer.toString(Activity.RESULT_OK));
-		if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
-            Log.i("data", data.toString());
-            String[] single_path = data.getStringArrayExtra("all_path");
-            Log.i("asdf", single_path[0]);
-            
-
-        } else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
-            String[] all_path = data.getStringArrayExtra("all_path");
-
-            ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
-
-            for (String string : all_path) {
-                CustomGallery item = new CustomGallery();
-                item.sdcardPath = string;
-                Log.i("string", string);
-                dataT.add(item);
-            }
-
-            
-        }
-     }
-	     
-	private void sendImageData() {
-		ArrayList<String> result = getImageURIs();
-
-	    
-	    ClientThread test = new ClientThread(result, this.getContentResolver());
-	    test.execute();
-	}
-
-
 	/*
 	 * Sends a message to the view after button is clicked
 	 */
@@ -415,13 +374,14 @@ public class MainScreen extends CustomActivity {
 		try{
 		    Intent i = new Intent(getApplicationContext(), Register.class);
 		    startActivity(i);
-		    }
-		    catch(Exception ex)
-		    {
-		        Log.e("main",ex.toString());
-		    }
+	    }
+	    catch(Exception ex)
+	    {
+	        Log.e("main",ex.toString());
+	    }
 		
 	}
+	
 	/*
 	 * Sends a message to the view after button is clicked
 	 */
@@ -441,7 +401,7 @@ public class MainScreen extends CustomActivity {
 	public void changePhotosScreen() {
 		
 		try{
-		    Intent i = new Intent(getApplicationContext(), ShowPhotos.class);
+		    Intent i = new Intent(getApplicationContext(), ShowAllPhotos.class);
 		    startActivity(i);
 		    }
 		    catch(Exception ex)
@@ -449,6 +409,53 @@ public class MainScreen extends CustomActivity {
 		        Log.e("main",ex.toString());
 		    }
 		
+	}
+	
+	/**
+	 * Lets user choose what photos to upload
+	 */
+	private void choosePhotos()
+	{
+		Intent i = new Intent(Action.ACTION_MULTIPLE_PICK);
+		startActivityForResult(i, 100);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) 
+	{
+		super.onActivityResult(requestCode, resultCode, data);
+		ArrayList<String> imagePath = null;
+		if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
+            Log.i("data", data.toString());
+            String[] single_path = data.getStringArrayExtra("all_path");
+            imagePath = new ArrayList<String>(Arrays.asList(single_path));
+
+        } else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
+            String[] all_path = data.getStringArrayExtra("all_path");
+
+            ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
+
+            for (String string : all_path) {
+                CustomGallery item = new CustomGallery();
+                item.sdcardPath = string;
+                Log.i("string", string);
+                dataT.add(item);
+            }
+            
+            
+        }
+		
+		if(imagePath != null)
+		{
+			sendImageData(imagePath);
+		}
+     }
+	     
+	private void sendImageData(ArrayList<String> result) {
+		Log.i("asf", result.get(0));
+		
+	    ClientThread test = new ClientThread(result, this.getContentResolver());
+	    test.execute();
 	}
 
 	@Override
