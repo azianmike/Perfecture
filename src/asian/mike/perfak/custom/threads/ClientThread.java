@@ -21,6 +21,7 @@ import android.content.ContentResolver;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.ProgressBar;
 import asian.mike.perfak.constants.ServerAddress;
 import asian.mike.perfak.constants.UserID;
 
@@ -35,9 +36,12 @@ import asian.mike.perfak.constants.UserID;
 		private Socket socket;
 		private ArrayList<String> results;
 		ContentResolver currContext ;
-		public ClientThread(ArrayList<String> result, ContentResolver currContext){
+		ProgressBar imageUploadProgress;
+		
+		public ClientThread(ArrayList<String> result, ContentResolver currContext, ProgressBar imageUploadProgress){
 			this.results = result;
 			this.currContext = currContext;
+			this.imageUploadProgress = imageUploadProgress;
 		}
 		
 		@Override
@@ -96,7 +100,6 @@ import asian.mike.perfak.constants.UserID;
 		private String getImageData() throws FileNotFoundException, IOException {
 			File myFile = new File (results.remove(0));
 			byte [] mybytearray  = new byte [(int)myFile.length()];
-            Log.i("####### file length = ", String.valueOf(myFile.length()) );
             FileInputStream fis = new FileInputStream(myFile);
             BufferedInputStream bis = new BufferedInputStream(fis);
             bis.read(mybytearray,0,mybytearray.length);
@@ -106,7 +109,8 @@ import asian.mike.perfak.constants.UserID;
 		
 		@Override
 	    protected void onPostExecute(Void result) {
-			Log.i("post execute", "post execute");
+			int progress = imageUploadProgress.getProgress() + 1;
+			imageUploadProgress.setProgress(progress);
 			try {
 				if(socket != null)
 					socket.close();
@@ -119,9 +123,10 @@ import asian.mike.perfak.constants.UserID;
 				return;
 			else
 			{
-				ClientThread newThread = new ClientThread(results, currContext);
+				ClientThread newThread = new ClientThread(results, currContext, imageUploadProgress);
 				newThread.execute();
 			}
+			
 			
 	    }
 		

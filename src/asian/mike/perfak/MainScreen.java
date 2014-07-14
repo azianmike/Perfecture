@@ -32,6 +32,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import asian.mike.perfak.R;
 import asian.mike.perfak.constants.Action;
@@ -67,6 +68,7 @@ public class MainScreen extends CustomActivity {
     SharedPreferences prefs;
     TextView mDisplay;
     
+    private ProgressBar imageUploadProgress;
     
 	@SuppressLint("NewApi")
 	@Override
@@ -90,6 +92,9 @@ public class MainScreen extends CustomActivity {
                 registerInBackground();
             }
 	    }
+		
+		imageUploadProgress = (ProgressBar)findViewById(R.id.imageUploadProgress);
+
 	}
 	
 	/**
@@ -326,14 +331,6 @@ public class MainScreen extends CustomActivity {
 		    }
 		});
 		
-		Button photos = (Button) findViewById(R.id.photos);
-		photos.setOnClickListener(new View.OnClickListener() {
-		    @Override
-		    public void onClick(View v) {
-		    	changePhotosScreen();
-		    }
-		});
-		
 		Button choosePhotos = (Button) findViewById(R.id.choosePhotos);
 		choosePhotos.setOnClickListener(new View.OnClickListener() {
 		    @Override
@@ -346,29 +343,29 @@ public class MainScreen extends CustomActivity {
 		goToProcessedImages.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
-		    	//goToProcessedImages();
-		    	choosePhotos();
+		    	goToProcessedImages();  //goes to processed images
 		    }
 		});
 	}
 	
 	
-	private void goToProcessedImages()
+	public void goToProcessedImages()
 	{
-		try{
-		    Intent i = new Intent(getApplicationContext(), ShowAllPhotos.class);
-		    startActivity(i);
-	    }
-	    catch(Exception ex)
-	    {
-	        Log.e("main",ex.toString());
-	    }
+
+		Intent i = new Intent(Action.ACTION_SHOW_PROCESSED);
+		startActivityForResult(i, 100);
 		
 	}
 	
-	/*
-	 * Sends a message to the view after button is clicked
+	/**
+	 * Lets user choose what photos to upload
 	 */
+	private void choosePhotos()
+	{
+		Intent i = new Intent(Action.ACTION_MULTIPLE_PICK);
+		startActivityForResult(i, 200);
+	}
+
 	public void changeRegisterScreen() {
 		
 		try{
@@ -390,56 +387,43 @@ public class MainScreen extends CustomActivity {
 		try{
 		    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
 		    startActivity(i);
-		    }
-		    catch(Exception ex)
-		    {
-		        Log.e("main",ex.toString());
-		    }
+	    }
+	    catch(Exception ex)
+	    {
+	        Log.e("main",ex.toString());
+	    }
 		
 	}
 	
-	public void changePhotosScreen() {
-		
-		try{
-		    Intent i = new Intent(getApplicationContext(), ShowAllPhotos.class);
-		    startActivity(i);
-		    }
-		    catch(Exception ex)
-		    {
-		        Log.e("main",ex.toString());
-		    }
-		
-	}
-	
-	/**
-	 * Lets user choose what photos to upload
-	 */
-	private void choosePhotos()
-	{
-		Intent i = new Intent(Action.ACTION_MULTIPLE_PICK);
-		startActivityForResult(i, 100);
-	}
-	
+	@SuppressWarnings("null")
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) 
 	{
 		super.onActivityResult(requestCode, resultCode, data);
 		ArrayList<String> imagePath = null;
+		
 		if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
             Log.i("data", data.toString());
-            String[] single_path = data.getStringArrayExtra("all_path");
-            imagePath = new ArrayList<String>(Arrays.asList(single_path));
+//            String[] single_path = data.getStringArrayExtra("all_path");
+//            imagePath = new ArrayList<String>(Arrays.asList(single_path));
+            //imagePath = data.getStringExtra("single_path");
+            Log.i("inside", "inside");
+            imagePath = new ArrayList<String>();
+           
+            imagePath.add(data.getStringExtra("single_path"));
+            //imageLoader.displayImage("file://" + single_path, imgSinglePick);
+
 
         } else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
             String[] all_path = data.getStringArrayExtra("all_path");
-
-            ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
+            imagePath = new ArrayList<String>();
+            //ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
 
             for (String string : all_path) {
-                CustomGallery item = new CustomGallery();
-                item.sdcardPath = string;
+                //CustomGallery item = new CustomGallery();
+                //item.sdcardPath = string;
                 Log.i("string", string);
-                dataT.add(item);
+                imagePath.add(string);
             }
             
             
@@ -452,9 +436,10 @@ public class MainScreen extends CustomActivity {
      }
 	     
 	private void sendImageData(ArrayList<String> result) {
-		Log.i("asf", result.get(0));
 		
-	    ClientThread test = new ClientThread(result, this.getContentResolver());
+		imageUploadProgress.setMax(result.size());
+		imageUploadProgress.setProgress(0);
+	    ClientThread test = new ClientThread(result, this.getContentResolver(), imageUploadProgress);
 	    test.execute();
 	}
 

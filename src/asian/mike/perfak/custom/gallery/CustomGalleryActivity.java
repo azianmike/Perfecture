@@ -50,7 +50,6 @@ public class CustomGalleryActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.i("custom gallery","custom gallery");
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.gallery);
 
@@ -111,6 +110,12 @@ public class CustomGalleryActivity extends Activity {
 			gridGallery.setOnItemClickListener(mItemSingleClickListener);
 			adapter.setMultiplePick(false);
 
+		} else if(action.equalsIgnoreCase(Action.ACTION_SHOW_PROCESSED))
+		{
+			
+			findViewById(R.id.llBottomContainer).setVisibility(View.GONE);
+			gridGallery.setOnItemClickListener(mItemSingleClickListener);
+			adapter.setMultiplePick(false);
 		}
 
 		gridGallery.setAdapter(adapter);

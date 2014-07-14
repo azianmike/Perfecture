@@ -1,5 +1,5 @@
 package asian.mike.perfak.constants;
 
 public class ServerAddress {
-	public static String address = "54.86.52.137";
+	public static String address = "54.88.245.95";
 }

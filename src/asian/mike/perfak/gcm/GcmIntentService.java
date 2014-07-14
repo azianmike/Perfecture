@@ -1,5 +1,7 @@
 package asian.mike.perfak.gcm;
 
+import org.json.JSONException;
+
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import android.app.IntentService;
@@ -88,10 +90,10 @@ public class GcmIntentService extends IntentService {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
         .setSmallIcon(R.drawable.ic_launcher)
-        .setContentTitle("GCM Notification")
+        .setContentTitle("Perfaakt")
         .setStyle(new NotificationCompat.BigTextStyle()
-        .bigText(msg))
-        .setContentText(msg)
+        .bigText("You're images are done being processed!"))
+        .setContentText("You're images are done being processed!")
         .setAutoCancel(true);
 
         mBuilder.setContentIntent(contentIntent);
@@ -99,6 +101,11 @@ public class GcmIntentService extends IntentService {
     }
     
     private void handleMessage(Bundle extras) {
-    	ProcessGCMBundle.setURIS(extras);
+    	try {
+			ProcessGCMBundle.setURIS(extras);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

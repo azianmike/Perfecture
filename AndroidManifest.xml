@@ -57,11 +57,15 @@
                 <category android:name="com.example.gcm" />
             </intent-filter>
         </receiver>
-        
+
         <service android:name="asian.mike.perfak.gcm.GcmIntentService" />
 
         <activity
             android:name="asian.mike.perfak.ShowAllPhotos"
+            android:label="@string/title_activity_show_photos" >
+        </activity>
+        <activity
+            android:name="asian.mike.perfak.ShowProcessedPhotos"
             android:label="@string/title_activity_show_photos" >
         </activity>
         <activity
@@ -85,6 +89,24 @@
         <activity
             android:name="asian.mike.perfak.FullScreenViewActivity"
             android:label="@string/title_activity_full_screen_view" >
+        </activity>
+        <activity
+            android:name="asian.mike.perfak.custom.gallery.ProcessedGalleryActivity"
+            android:label="@string/title_activity_processed_gallery" >
+            <intent-filter>
+                <action android:name="luminous.ACTION_SHOW_PROCESSED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="asian.mike.perfak.custom.gallery.ShowSingleProcessedImages"
+            android:label="@string/title_activity_show_single_processed_images" >
+            <intent-filter>
+                <action android:name="luminous.SHOW_SINGLE_LIST_PROCESSED_IMAGES"/>
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -13,5 +13,7 @@
     <string name="title_activity_processed_image">ProcessedImage</string>
     <string name="title_activity_grid_view">GridView</string>
     <string name="title_activity_full_screen_view">FullScreenViewActivity</string>
+    <string name="title_activity_processed_gallery">ProcessedGalleryActivity</string>
+    <string name="title_activity_show_single_processed_images">ShowSingleProcessedImages</string>
 
 </resources>
