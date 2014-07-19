@@ -69,4 +69,9 @@ public class ProcessGCMBundle {
 	{
 		return uris;
 	}
+	
+	public static int getLengthOfArrayList(int index)
+	{
+		return uris.get(index).size();
+	}
 }

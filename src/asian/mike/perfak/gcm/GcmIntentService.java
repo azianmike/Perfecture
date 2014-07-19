@@ -89,7 +89,7 @@ public class GcmIntentService extends IntentService {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-        .setSmallIcon(R.drawable.ic_launcher)
+        .setSmallIcon(R.drawable.notification)
         .setContentTitle("Perfaakt")
         .setStyle(new NotificationCompat.BigTextStyle()
         .bigText("You're images are done being processed!"))

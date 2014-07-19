@@ -114,7 +114,6 @@ import asian.mike.perfak.constants.UserID;
 			try {
 				if(socket != null)
 					socket.close();
-				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -126,8 +125,6 @@ import asian.mike.perfak.constants.UserID;
 				ClientThread newThread = new ClientThread(results, currContext, imageUploadProgress);
 				newThread.execute();
 			}
-			
-			
 	    }
 		
 		
