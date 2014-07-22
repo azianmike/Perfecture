@@ -15,4 +15,6 @@
 
     <drawable name="light_black_">#33000000</drawable>
 
+    <color name="black_overlay">#66000000</color>
+
 </resources>

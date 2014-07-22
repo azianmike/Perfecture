@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -343,13 +344,19 @@ public class MainScreen extends CustomActivity {
 		goToProcessedImages.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
+		    	dismissNotification();
 		    	goToProcessedImages();  //goes to processed images
 		    }
 		});
 	}
 	
+	private void dismissNotification()
+	{
+		NotificationManager manager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+		manager.cancel(1);
+	}
 	
-	public void goToProcessedImages()
+	private void goToProcessedImages()
 	{
 
 		Intent i = new Intent(Action.ACTION_SHOW_PROCESSED);

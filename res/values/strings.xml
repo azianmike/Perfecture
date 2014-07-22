@@ -15,5 +15,9 @@
     <string name="title_activity_full_screen_view">FullScreenViewActivity</string>
     <string name="title_activity_processed_gallery">ProcessedGalleryActivity</string>
     <string name="title_activity_show_single_processed_images">ShowSingleProcessedImages</string>
+    <string name="title_activity_show_single_fullscreen_image">Show_single_fullscreen_image</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_image_pager">ImagePagerActivity</string>
 
 </resources>

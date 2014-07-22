@@ -1,6 +1,7 @@
-package asian.mike.perfak.custom.processed.gallery;
+package asian.mike.perfak.custom.gallery;
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,6 @@ import asian.mike.perfak.R.drawable;
 import asian.mike.perfak.R.id;
 import asian.mike.perfak.R.layout;
 import asian.mike.perfak.constants.ProcessGCMBundle;
-import asian.mike.perfak.custom.gallery.CustomGallery;
 import android.util.Log;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -127,6 +127,7 @@ public class ProcessedGalleryAdapter extends BaseAdapter {
 				.get(position).isSeleted);
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 

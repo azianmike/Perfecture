@@ -26,6 +26,7 @@ import asian.mike.perfak.constants.Action;
 import asian.mike.perfak.constants.ProcessGCMBundle;
 import asian.mike.perfak.custom.gallery.CustomGallery;
 import asian.mike.perfak.custom.gallery.GalleryAdapter;
+import asian.mike.perfak.custom.gallery.ProcessedGalleryAdapter;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -59,6 +60,15 @@ public class ProcessedGalleryActivity extends Activity {
 		if (action == null) {
 			finish();
 		}
+		initImageLoader();
+		init();
+	}
+	
+	@Override
+	public void onResume()
+	{
+		Log.i("on resume", "on resume");
+		super.onResume();
 		initImageLoader();
 		init();
 	}

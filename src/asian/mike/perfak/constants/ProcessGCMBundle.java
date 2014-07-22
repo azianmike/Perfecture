@@ -12,12 +12,14 @@ import asian.mike.perfak.custom.gallery.CustomGallery;
 public class ProcessGCMBundle {
 	private static ArrayList<ArrayList<CustomGallery>> uris;
 	private static ArrayList<CustomGallery> firstURIS;
+	private static ArrayList<ArrayList<String>> arrayURIS;
 	
 	public static void setURIS(Bundle bundle) throws JSONException
 	{
 		if(uris == null)
 		{
 			uris = new ArrayList<ArrayList<CustomGallery>>();
+			arrayURIS = new ArrayList<ArrayList<String>>();
 		}
 		String data = bundle.getString("data");
 		JSONArray dataArray;
@@ -27,13 +29,15 @@ public class ProcessGCMBundle {
 		{
 			JSONArray elementArray = dataArray.getJSONArray(i);  //each element is a JSONArray that has all the similar images
 			ArrayList<CustomGallery> tempList = new ArrayList<CustomGallery>();
+			ArrayList<String> tempListString = new ArrayList<String>();
 			for(int j=0; j<elementArray.length(); j++)
 			{
 				CustomGallery temp = new CustomGallery();
 				temp.sdcardPath = elementArray.getString(j);
 				tempList.add(temp);
+				tempListString.add("file://"+elementArray.getString(j));
 			}
-			
+			arrayURIS.add(tempListString);
 			uris.add(tempList);
 		}
 		
@@ -73,5 +77,17 @@ public class ProcessGCMBundle {
 	public static int getLengthOfArrayList(int index)
 	{
 		return uris.get(index).size();
+	}
+	
+	public static ArrayList<String> getArrayListStrings(int position)
+	{
+		return arrayURIS.get(position);
+	}
+	
+	public static void removeArraylist(int position)
+	{
+		uris.remove(position);
+		firstURIS.remove(position);
+		arrayURIS.remove(position);
 	}
 }

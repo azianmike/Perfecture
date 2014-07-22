@@ -58,9 +58,6 @@ public class GcmIntentService extends IntentService {
             } else if (GoogleCloudMessaging.
                     MESSAGE_TYPE_MESSAGE.equals(messageType)) {
 
-                // Post notification of received message.
-                sendNotification("Received: " + extras.toString());
-                Log.i(TAG, "Received: " + extras.toString());
                 String data = extras.getString("data");
                 if(data.equals("refresh"))
                 {
@@ -70,6 +67,8 @@ public class GcmIntentService extends IntentService {
                 	Log.i(TAG, "Data "+data);
                     handleMessage(extras);
                 }
+                
+                sendNotification("Received: " + extras.toString());
                 
             }
         }
