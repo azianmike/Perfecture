@@ -47,10 +47,8 @@ public class ProcessGCMBundle {
 	
 	public static void setFirstURIS()
 	{
-		if(firstURIS == null)
-		{
-			firstURIS = new ArrayList<CustomGallery>();
-		}
+		firstURIS = new ArrayList<CustomGallery>();
+		
 		for(int i=0; i<uris.size(); i++)
 		{
 			ArrayList<CustomGallery> tempList = uris.get(i);

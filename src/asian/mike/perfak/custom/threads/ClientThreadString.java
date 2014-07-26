@@ -46,14 +46,9 @@ import asian.mike.perfak.constants.ServerAddress;
 				PrintWriter pw = new PrintWriter(os);
 				pw.println(arg0[0]);
 				pw.flush();
-				Log.i("finished sending", "finished sending");
 				
 				BufferedReader is = new BufferedReader(new InputStreamReader(in));
-				Log.i("receivng1", "receiving2");
 				output = is.readLine();
-				
-				Log.i("receivng", "receiving");
-
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

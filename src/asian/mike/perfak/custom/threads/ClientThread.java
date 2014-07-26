@@ -1,12 +1,14 @@
 package asian.mike.perfak.custom.threads;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -37,6 +39,7 @@ import asian.mike.perfak.constants.UserID;
 		private ArrayList<String> results;
 		ContentResolver currContext ;
 		ProgressBar imageUploadProgress;
+		private static String forwardedPublicIP = null;
 		
 		public ClientThread(ArrayList<String> result, ContentResolver currContext, ProgressBar imageUploadProgress){
 			this.results = result;
@@ -48,18 +51,25 @@ import asian.mike.perfak.constants.UserID;
 		protected Void doInBackground(String... arg0) {
 
 			InetAddress serverAddr;
+			String serverToConnectTo = forwardedPublicIP;
+			if(forwardedPublicIP == null){
+				serverToConnectTo = ServerAddress.address;
+			}
 			try {
-				serverAddr = InetAddress.getByName(ServerAddress.address);
-
+				serverAddr = InetAddress.getByName(serverToConnectTo);
+				
 				socket = new Socket(serverAddr, 5069);
-
+				
+				DataInputStream in = new DataInputStream(socket.getInputStream());
 				DataOutputStream os = new DataOutputStream(socket.getOutputStream());
 				PrintWriter pw = new PrintWriter(os);
 				String dataToSend = getJSONString();
 				pw.print(dataToSend+"\r\n\r\n");
 				pw.flush();
 				
-					
+				BufferedReader is = new BufferedReader(new InputStreamReader(in));
+				output = is.readLine();
+				Log.i("output for public ip", output);
 				
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
@@ -111,6 +121,12 @@ import asian.mike.perfak.constants.UserID;
 	    protected void onPostExecute(Void result) {
 			int progress = imageUploadProgress.getProgress() + 1;
 			imageUploadProgress.setProgress(progress);
+			
+			if(output != null)
+			{
+				forwardedPublicIP = output;
+			}
+			
 			try {
 				if(socket != null)
 					socket.close();
@@ -119,7 +135,10 @@ import asian.mike.perfak.constants.UserID;
 				e.printStackTrace();
 			}
 			if(results.size() == 0)
+			{
+				forwardedPublicIP = null;
 				return;
+			}
 			else
 			{
 				ClientThread newThread = new ClientThread(results, currContext, imageUploadProgress);
