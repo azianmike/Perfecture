@@ -19,5 +19,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_image_pager">ImagePagerActivity</string>
+    <string name="title_activity_main__beta__screen">Main_Beta_Screen</string>
 
 </resources>

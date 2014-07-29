@@ -136,6 +136,7 @@ import asian.mike.perfak.constants.UserID;
 			}
 			if(results.size() == 0)
 			{
+				Log.i("done uploading images", "done uploading images");
 				forwardedPublicIP = null;
 				return;
 			}

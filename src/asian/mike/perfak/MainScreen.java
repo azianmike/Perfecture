@@ -268,6 +268,7 @@ public class MainScreen extends CustomActivity {
 	}
 
 	
+	@SuppressLint("NewApi")
 	private void signOut()
 	{
 		UserID.userID="-1";
@@ -277,9 +278,10 @@ public class MainScreen extends CustomActivity {
 		loginItem.setVisible(true);
 		registerItem.setVisible(true);
 		signoutItem.setVisible(false);
-		saveUserToDisk("-1");
-		//showSignOutDialog();
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle("Not Logged in");
 		updateLogin();
+		saveUserToDisk("-1");
 	}
 	
 	/**
@@ -336,6 +338,10 @@ public class MainScreen extends CustomActivity {
 		choosePhotos.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
+		    	if(UserID.userID.equals("-1"))
+		    	{
+		    		setAlert("Not logged in");
+		    	}
 		    	choosePhotos();
 		    }
 		});
@@ -402,33 +408,23 @@ public class MainScreen extends CustomActivity {
 		
 	}
 	
-	@SuppressWarnings("null")
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) 
 	{
 		super.onActivityResult(requestCode, resultCode, data);
 		ArrayList<String> imagePath = null;
 		
-		if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
-            Log.i("data", data.toString());
-//            String[] single_path = data.getStringArrayExtra("all_path");
-//            imagePath = new ArrayList<String>(Arrays.asList(single_path));
-            //imagePath = data.getStringExtra("single_path");
-            Log.i("inside", "inside");
+		if (requestCode == 100 && resultCode == Activity.RESULT_OK) 
+		{
             imagePath = new ArrayList<String>();
-           
             imagePath.add(data.getStringExtra("single_path"));
-            //imageLoader.displayImage("file://" + single_path, imgSinglePick);
-
-
-        } else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
+            
+        } else if (requestCode == 200 && resultCode == Activity.RESULT_OK) 
+        {
             String[] all_path = data.getStringArrayExtra("all_path");
             imagePath = new ArrayList<String>();
-            //ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
 
             for (String string : all_path) {
-                //CustomGallery item = new CustomGallery();
-                //item.sdcardPath = string;
                 Log.i("string", string);
                 imagePath.add(string);
             }
@@ -452,7 +448,6 @@ public class MainScreen extends CustomActivity {
 
 	@Override
 	public void postExecute(String output) throws JSONException, IOException {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -462,6 +457,11 @@ public class MainScreen extends CustomActivity {
 	@SuppressLint("NewApi")
 	private void updateLogin()
 	{
+		if(UserID.userID==null || UserID.userID.equals("-1"))
+		{
+			return;
+		}
+		
 		if(menu==null)
 			return;
 		ActionBar actionBar = getActionBar();
@@ -474,14 +474,15 @@ public class MainScreen extends CustomActivity {
 		{
 			actionBar.setTitle("User:"+UserID.userID);
 			saveUserToDisk(UserID.userID);
-			showSignOut();
+			showSignout();
 		}
 	}
 	
 	/**
-	 * After user logs in, shows the sign out button
+	 * Shows the signout button after the user has logged in. 
+	 * Disables the login and register buttons
 	 */
-	private void showSignOut()
+	private void showSignout()
 	{
 		MenuItem loginItem = menu.findItem(R.id.login);
 		MenuItem registerItem =menu.findItem(R.id.register);
@@ -490,45 +491,5 @@ public class MainScreen extends CustomActivity {
 		registerItem.setVisible(false);
 		signoutItem.setVisible(true);
 	}
-	
-	protected void setUserID()
-	{
-		UserID.userID = getUserFromDisk();
-		if(UserID.userID!="-1")
-		{
-			updateLogin();
-		}
-	}
-	
-	/**
-	 * Gets user ID from disk if it exists
-	 * @return UserID
-	 */
-	private String getUserFromDisk()
-	{
-		String ret="-1";
-		try {
-	        InputStream inputStream = openFileInput("userID");
-	        
-	        if ( inputStream != null ) {
-	            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-	            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-	            String receiveString = "";
-	            StringBuilder stringBuilder = new StringBuilder();
 
-	            while ( (receiveString = bufferedReader.readLine()) != null ) {
-	                stringBuilder.append(receiveString);
-	            }
-
-	            inputStream.close();
-	            ret = stringBuilder.toString();
-	        }
-	    }catch (FileNotFoundException e) {
-	        Log.e("login activity", "File not found: " + e.toString());
-	    } catch (IOException e) {
-	        Log.e("login activity", "Can not read file: " + e.toString());
-	    }
-		
-		return ret;
-	}
 }
