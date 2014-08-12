@@ -33,7 +33,6 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
-import asian.mike.perfak.ImagePagerActivity;
 import asian.mike.perfak.R;
 import asian.mike.perfak.constants.Action;
 import asian.mike.perfak.constants.ProcessGCMBundle;
@@ -46,7 +45,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.assist.PauseOnScrollListener;
+import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 
 public class ShowSingleProcessedImages extends Activity {

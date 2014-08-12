@@ -50,6 +50,10 @@ import asian.mike.perfak.constants.UserID;
 		@Override
 		protected Void doInBackground(String... arg0) {
 
+			if(results.size()==0)
+			{
+				return null;
+			}
 			InetAddress serverAddr;
 			String serverToConnectTo = forwardedPublicIP;
 			if(forwardedPublicIP == null){

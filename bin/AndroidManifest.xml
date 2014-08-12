@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -25,7 +25,7 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" 
+        android:theme="@style/_AppTheme" 
         >
         <activity
             android:name="asian.mike.perfak.MainScreen"
@@ -117,7 +117,7 @@
             android:theme="@style/FullscreenTheme" >
         </activity>
         <activity
-            android:name="asian.mike.perfak.ImagePagerActivity"
+            android:name="asian.mike.perfak.custom.processed.gallery.ImagePagerActivity"
             android:label="@string/title_activity_image_pager" >
         </activity>
         <activity

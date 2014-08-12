@@ -19,7 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
+import android.widget.GridView;  
 import android.widget.ImageView;
 import asian.mike.perfak.R;
 import asian.mike.perfak.R.id;
@@ -32,7 +32,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.assist.PauseOnScrollListener;
+import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 
 public class CustomGalleryActivity extends Activity {
@@ -101,6 +101,7 @@ public class CustomGalleryActivity extends Activity {
 		if (action.equalsIgnoreCase(Action.ACTION_MULTIPLE_PICK)) {
 
 			findViewById(R.id.llBottomContainer).setVisibility(View.VISIBLE);
+			Log.i("setting multiple pick", "true");
 			gridGallery.setOnItemClickListener(mItemMulClickListener);
 			adapter.setMultiplePick(true);
 
@@ -173,7 +174,9 @@ public class CustomGalleryActivity extends Activity {
 
 		@Override
 		public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+			Log.i("clicked", Integer.toString(position));
 			adapter.changeSelection(v, position);
+			
 
 		}
 	};
