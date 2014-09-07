@@ -53,12 +53,5 @@ public class ConnectToServer {
     {
         StopUploading.setUploading(true);
         imageUploadProgress.setProgress(0);
-        try
-        {
-            socket.close();
-        }catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 }

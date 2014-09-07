@@ -26,7 +26,6 @@ import java.io.InputStreamReader;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
-import asian.mike.perphekt.CustomActivity;
 import asian.mike.perphekt.constants.ConnectToServer;
 import asian.mike.perphekt.constants.ServerAddress;
 import asian.mike.perphekt.constants.StopUploading;
@@ -38,9 +37,7 @@ import asian.mike.perphekt.constants.UserID;
  *
  */
 public class HTTPPostUploadImage extends AsyncTask<String, Void, Void> {
-    private CustomActivity activity;
     String output=null;
-    private JSONObject data = null;
     private ArrayList<String> results;
     ContentResolver currContext ;
     ProgressBar imageUploadProgress;
@@ -106,10 +103,8 @@ public class HTTPPostUploadImage extends AsyncTask<String, Void, Void> {
 
             fullData.put("firstTime", true);
             firstTime = false;
-            Log.i("switching first time to false", "false");
         }else
         {
-            Log.i("switching first time to false", "false");
             fullData.put("firstTime", false);
         }
         return fullData.toString();

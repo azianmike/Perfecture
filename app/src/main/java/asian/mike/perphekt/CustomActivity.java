@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import asian.mike.perphekt.constants.StopUploading;
 import asian.mike.perphekt.constants.UserID;
 import asian.mike.perphekt.custom.threads.HTTPPostUploadImage;
 
@@ -211,7 +212,7 @@ public abstract class CustomActivity extends FragmentActivity{
     }
 
     protected void sendImageData(ArrayList<String> result, ProgressBar imageUploadProgress) {
-
+        StopUploading.setUploading(false);
         imageUploadProgress.setMax(result.size());
         imageUploadProgress.setProgress(0);
         HTTPPostUploadImage uploadAllImages = new HTTPPostUploadImage(result, this.getContentResolver(), imageUploadProgress, true);
