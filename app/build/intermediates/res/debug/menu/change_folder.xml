@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/changeFolder"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Change folder"/>
+</menu><!-- From: file:/Users/michaelluo/Dropbox/AndroidWorkspace/app/src/main/res/menu/change_folder.xml -->
