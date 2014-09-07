@@ -18,7 +18,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import asian.mike.perphekt.constants.UserID;
-import asian.mike.perphekt.custom.threads.ClientThreadString;
+import asian.mike.perphekt.custom.threads.HTTPPostLogin;
 
 
 /**
@@ -31,7 +31,7 @@ public class LoginActivity extends CustomActivity {
 	 */
 	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
 	// UI references.
-	private ClientThreadString thread;
+	private HTTPPostLogin thread;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -131,8 +131,8 @@ public class LoginActivity extends CustomActivity {
 		sendInfo.put("password", getHashPassword(password));
 		
 		String sendInfoString=sendInfo.toString()+"\r\n\r\n";
-		thread=new ClientThreadString(this);;
-		thread.execute(sendInfoString);
+		thread=new HTTPPostLogin(this, sendInfo);
+		thread.execute();
         UserID.setUserEmail(email);
 	}
 	

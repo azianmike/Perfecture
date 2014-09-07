@@ -23,7 +23,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import asian.mike.perphekt.constants.UserID;
-import asian.mike.perphekt.custom.threads.ClientThread;
+import asian.mike.perphekt.custom.threads.HTTPPostUploadImage;
 
 
 public abstract class CustomActivity extends FragmentActivity{
@@ -214,7 +214,7 @@ public abstract class CustomActivity extends FragmentActivity{
 
         imageUploadProgress.setMax(result.size());
         imageUploadProgress.setProgress(0);
-        ClientThread test = new ClientThread(result, this.getContentResolver(), imageUploadProgress, true);
-        test.execute();
+        HTTPPostUploadImage uploadAllImages = new HTTPPostUploadImage(result, this.getContentResolver(), imageUploadProgress, true);
+        uploadAllImages.execute();
     }
 }

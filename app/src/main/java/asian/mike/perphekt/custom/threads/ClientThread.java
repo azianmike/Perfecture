@@ -90,7 +90,6 @@ import asian.mike.perphekt.constants.UserID;
 			JSONObject imageData = new JSONObject();
 			JSONArray images = new JSONArray(); 
 			imageData.put(results.get(0), getImageData());
-			Log.i("results length", Integer.toString(results.size()));
 			images.put(imageData);
 			JSONObject fullData = new JSONObject();
 			fullData.put("userID", UserID.userID);

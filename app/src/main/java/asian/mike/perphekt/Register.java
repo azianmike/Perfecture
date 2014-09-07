@@ -20,7 +20,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import asian.mike.perphekt.constants.UserID;
-import asian.mike.perphekt.custom.threads.ClientThreadString;
+import asian.mike.perphekt.custom.threads.HTTPPostRegister;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -32,7 +32,7 @@ public class Register extends CustomActivity {
 	 * The default email to populate the email field with.
 	 */
 	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
-	private ClientThreadString thread;
+	private HTTPPostRegister thread;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -134,8 +134,8 @@ public class Register extends CustomActivity {
 				sendInfo.put("gcm_ID", UserID.gcmID);
 				
 				String sendInfoString=sendInfo.toString()+"\r\n\r\n";
-				thread=new ClientThreadString(this);;
-				thread.execute(sendInfoString);
+				thread=new HTTPPostRegister(this, sendInfo);
+				thread.execute();
 			}
 		}else
 		{

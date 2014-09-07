@@ -16,7 +16,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,6 @@ import asian.mike.perphekt.constants.ServerAddress;
 public class HTTPPostRegister extends AsyncTask<String, Void, Void> {
     private CustomActivity activity;
     String output=null;
-    private Socket socket;
     private JSONObject data = null;
 
     public HTTPPostRegister(CustomActivity activity, JSONObject data)
@@ -85,14 +83,6 @@ public class HTTPPostRegister extends AsyncTask<String, Void, Void> {
     }
     @Override
     protected void onPostExecute(Void result) {
-
-        try {
-            if(socket != null)
-                socket.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
         if(output==null)
         {
             return;

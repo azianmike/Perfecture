@@ -1,7 +1,6 @@
 package asian.mike.perphekt.constants;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -123,8 +122,6 @@ public class ProcessGCMBundle {
 	
 	public static int getLengthOfArrayList(int index)
 	{
-        if(uris.get(index).size()>1)
-            Log.i("size of array", Integer.toString(index) + " " + Integer.toString(uris.get(index).size()));
 		return uris.get(index).size();
 	}
 	

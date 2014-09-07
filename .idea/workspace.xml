@@ -57,42 +57,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/ClientThread.java">
+      <file leaf-file-name="ProcessGCMBundle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ProcessGCMBundle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1446" max-vertical-offset="2310">
-              <caret line="132" column="23" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1401" max-vertical-offset="2385">
+              <caret line="127" column="50" selection-start-line="127" selection-start-column="50" selection-end-line="127" selection-end-column="50" />
+              <folding>
+                <element signature="e#1056#1071#0" expanded="true" />
+                <element signature="e#1127#1135#0" expanded="true" />
+                <element signature="e#2227#2242#0" expanded="true" />
+                <element signature="e#2298#2306#0" expanded="true" />
+                <element signature="e#3097#3098#0" expanded="true" />
+                <element signature="e#3120#3121#0" expanded="true" />
+                <element signature="e#3263#3264#0" expanded="true" />
+                <element signature="e#3299#3300#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerAddress.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ServerAddress.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+              <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProcessGCMBundle.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ProcessGCMBundle.java">
+      <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1401" max-vertical-offset="2415">
-              <caret line="126" column="109" selection-start-line="126" selection-start-column="109" selection-end-line="126" selection-end-column="109" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1725" max-vertical-offset="2295">
+              <caret line="164" column="13" selection-start-line="137" selection-start-column="12" selection-end-line="164" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/CustomActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2567" max-vertical-offset="3000">
+              <caret line="217" column="34" selection-start-line="217" selection-start-column="34" selection-end-line="217" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HTTPPostUploadImage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostUploadImage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="2895">
+              <caret line="156" column="45" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
               <folding>
-                <element signature="e#1081#1096#0" expanded="true" />
-                <element signature="e#1152#1160#0" expanded="true" />
-                <element signature="e#2252#2267#0" expanded="true" />
-                <element signature="e#2323#2331#0" expanded="true" />
-                <element signature="e#3122#3123#0" expanded="true" />
-                <element signature="e#3145#3146#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomGalleryActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/gallery/CustomGalleryActivity.java">
+      <file leaf-file-name="HTTPPostRegister.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostRegister.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.26923" vertical-offset="3100" max-vertical-offset="3825">
-              <caret line="316" column="12" selection-start-line="316" selection-start-column="8" selection-end-line="316" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.6196172" vertical-offset="926" max-vertical-offset="1755">
+              <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
               <folding>
-                <element signature="e#3226#3479#0" expanded="true" />
-                <element signature="e#3468#3469#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1328#1343#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="2055">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,7 +144,7 @@
       <file leaf-file-name="ProcessedGalleryActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/processed/gallery/ProcessedGalleryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1024" max-vertical-offset="3255">
+            <state vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="3255">
               <caret line="122" column="64" selection-start-line="122" selection-start-column="64" selection-end-line="122" selection-end-column="64" />
               <folding>
                 <element signature="e#5333#5730#0" expanded="true" />
@@ -112,31 +156,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProcessedGalleryAdapter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/MainScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2379" max-vertical-offset="6060">
+              <caret line="206" column="43" selection-start-line="206" selection-start-column="43" selection-end-line="206" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessedGalleryAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/gallery/ProcessedGalleryAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62469137" vertical-offset="1472" max-vertical-offset="3105">
-              <caret line="138" column="53" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GalleryAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/gallery/GalleryAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2162" max-vertical-offset="2580">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LargestLimitedMemoryCache.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/app/libs/universal-image-loader-1.9.2-with-sources.jar!/com/nostra13/universalimageloader/cache/memory/impl/LargestLimitedMemoryCache.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1320">
-              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="3105">
+              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -862,7 +896,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perfak/MainScreen.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/processed_gallery.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/processed_gallery_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen.xml" />
@@ -871,7 +904,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/StopUploading.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ConnectToServer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/processed/gallery/ShowSingleProcessedImages.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/CustomActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/UserID.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/first_time_save_image_checkbox.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/processed/gallery/ShowSingleListProcessed.java" />
@@ -885,16 +917,20 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostString.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostRegister.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/Register.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ServerAddress.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/ClientThread.java" />
         <option value="$PROJECT_DIR$/app/libs/universal-image-loader-1.9.2-with-sources.jar!/com/nostra13/universalimageloader/cache/memory/impl/LargestLimitedMemoryCache.java" />
         <option value="$PROJECT_DIR$/app/libs/universal-image-loader-1.9.2-with-sources.jar!/com/nostra13/universalimageloader/core/DisplayImageOptions.class" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/gallery/CustomGalleryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ProcessGCMBundle.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/processed/gallery/ProcessedGalleryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/gallery/ProcessedGalleryAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ProcessGCMBundle.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/ClientThread.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ServerAddress.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/Register.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostRegister.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostLogin.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/CustomActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostUploadImage.java" />
       </list>
     </option>
   </component>
@@ -1553,23 +1589,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/gallery.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1035">
-          <caret line="18" column="8" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/processed_gallery.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.7777777" vertical-offset="30" max-vertical-offset="1005">
@@ -1760,22 +1779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/CustomActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="3000">
-          <caret line="83" column="19" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/MainScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="6630">
-          <caret line="82" column="13" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/app/Activity.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20076482" vertical-offset="0" max-vertical-offset="6675">
@@ -1831,56 +1834,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6923075" vertical-offset="1540" max-vertical-offset="2175">
-          <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
-          <folding>
-            <element signature="e#2494#2826#0" expanded="true" />
-            <element signature="e#2815#2816#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1318" max-vertical-offset="2055">
-          <caret line="150" column="33" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1905">
-          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1379#1394#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ServerAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/ClientThreadString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1245">
           <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/ClientThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1446" max-vertical-offset="2310">
-          <caret line="132" column="23" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1928,21 +1885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ProcessGCMBundle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1356" max-vertical-offset="2415">
-          <caret line="126" column="109" selection-start-line="126" selection-start-column="109" selection-end-line="126" selection-end-column="109" />
-          <folding>
-            <element signature="e#1081#1096#0" expanded="true" />
-            <element signature="e#1152#1160#0" expanded="true" />
-            <element signature="e#2252#2267#0" expanded="true" />
-            <element signature="e#2323#2331#0" expanded="true" />
-            <element signature="e#3122#3123#0" expanded="true" />
-            <element signature="e#3145#3146#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/java/util/ArrayList.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="165" max-vertical-offset="945">
@@ -1972,11 +1914,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5119617" vertical-offset="71" max-vertical-offset="2145">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="2055">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ServerAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/constants/ProcessGCMBundle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1401" max-vertical-offset="2385">
+          <caret line="127" column="50" selection-start-line="127" selection-start-column="50" selection-end-line="127" selection-end-column="50" />
+          <folding>
+            <element signature="e#1056#1071#0" expanded="true" />
+            <element signature="e#1127#1135#0" expanded="true" />
+            <element signature="e#2227#2242#0" expanded="true" />
+            <element signature="e#2298#2306#0" expanded="true" />
+            <element signature="e#3097#3098#0" expanded="true" />
+            <element signature="e#3120#3121#0" expanded="true" />
+            <element signature="e#3263#3264#0" expanded="true" />
+            <element signature="e#3299#3300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22488038" vertical-offset="1166" max-vertical-offset="1755">
+          <caret line="84" column="47" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1319#1334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/ClientThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1725" max-vertical-offset="2295">
+          <caret line="164" column="13" selection-start-line="137" selection-start-column="12" selection-end-line="164" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/MainScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2379" max-vertical-offset="6060">
+          <caret line="206" column="43" selection-start-line="206" selection-start-column="43" selection-end-line="206" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/CustomActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2567" max-vertical-offset="3000">
+          <caret line="217" column="34" selection-start-line="217" selection-start-column="34" selection-end-line="217" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/gallery/ProcessedGalleryAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62469137" vertical-offset="1472" max-vertical-offset="3105">
-          <caret line="138" column="53" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="3105">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostUploadImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="2895">
+          <caret line="156" column="45" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/asian/mike/perphekt/custom/threads/HTTPPostRegister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6196172" vertical-offset="926" max-vertical-offset="1755">
+          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1328#1343#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
