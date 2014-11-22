@@ -1460,14 +1460,15 @@ containing a value of this type.
         public static final int ic_plusone_tall_off_client=0x7f0200f6;
         public static final int icon=0x7f0200f7;
         public static final int icon1r5=0x7f0200f8;
-        public static final int light_black_=0x7f020100;
-        public static final int no_media=0x7f0200f9;
-        public static final int notification=0x7f0200fa;
-        public static final int on_focus_checkbox=0x7f0200fb;
-        public static final int powered_by_google_dark=0x7f0200fc;
-        public static final int powered_by_google_light=0x7f0200fd;
-        public static final int show_processed_checkbox=0x7f0200fe;
-        public static final int top_bar=0x7f0200ff;
+        public static final int icon2=0x7f0200f9;
+        public static final int light_black_=0x7f020101;
+        public static final int no_media=0x7f0200fa;
+        public static final int notification=0x7f0200fb;
+        public static final int on_focus_checkbox=0x7f0200fc;
+        public static final int powered_by_google_dark=0x7f0200fd;
+        public static final int powered_by_google_light=0x7f0200fe;
+        public static final int show_processed_checkbox=0x7f0200ff;
+        public static final int top_bar=0x7f020100;
     }
     public static final class id {
         public static final int action_bar=0x7f07002e;

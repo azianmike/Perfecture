@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -62,6 +63,7 @@ public class MainScreen extends CustomActivity {
     private AtomicInteger msgId = new AtomicInteger();
     private SharedPreferences prefs;
     private TextView mDisplay;
+    private ProgressDialog dialog;
     
 	@SuppressLint("NewApi")
 	@Override
@@ -79,10 +81,16 @@ public class MainScreen extends CustomActivity {
 			gcm = GoogleCloudMessaging.getInstance(this);
 			regid = getRegistrationId(context);
             if (regid.isEmpty()) {
+                dialog = new ProgressDialog(this);
+                dialog.setMessage("Setting up some stuff...");
+                dialog.setCancelable(false);
+                dialog.setInverseBackgroundForced(false);
+                dialog.show();
                 registerInBackground();
+            }else {
+                final SharedPreferences prefs = getGCMPreferences(context);
+                UserID.gcmID = prefs.getString(PROPERTY_REG_ID, null);
             }
-            final SharedPreferences prefs = getGCMPreferences(context);
-            UserID.gcmID = prefs.getString(PROPERTY_REG_ID, null);
 	    }
 		
 		imageUploadProgress = (ProgressBar)findViewById(R.id.imageUploadProgress);
@@ -207,10 +215,17 @@ public class MainScreen extends CustomActivity {
 	                // Require the user to click a button again, or perform
 	                // exponential back-off.
 			}
+            //ProgressDialog dialog = (ProgressDialog)params[2];
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    dialog.hide();
+                }
+            });
 
             return msg;
 	    }
-		}.execute(null, null, null);
+		}.execute(null, null, dialog);
 
 	}
 	
@@ -222,7 +237,8 @@ public class MainScreen extends CustomActivity {
 	 * @param regId registration ID
 	 */
 	private void storeRegistrationId(Context context, String regId) {
-	    final SharedPreferences prefs = getGCMPreferences(context);
+        UserID.gcmID = regId;
+        final SharedPreferences prefs = getGCMPreferences(context);
 	    int appVersion = getAppVersion(context);
 	    //Log.i(TAG, "Saving regId on app version " + appVersion);
 	    SharedPreferences.Editor editor = prefs.edit();
